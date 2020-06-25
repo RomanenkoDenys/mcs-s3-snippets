@@ -1,1 +1,1 @@
-// main go file
+package main
