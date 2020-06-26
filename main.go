@@ -5,6 +5,8 @@ import (
 )
 
 func main() {
+        // Установка формата лога
+	log.SetFormatter(&log.JSONFormatter{})
 	// Конфигурация
 	var conf Configuration
 	// Переменная окружения AWS_PROFILE
@@ -18,7 +20,7 @@ func main() {
 	conf.Aws_secret_access_key = os.Getenv("AWS_SECRET_ACCESS_KEY")
 	// Если переменные окружения не установлены пробуем прочитать конфиг файл
 	if conf.Aws_access_key_id == "" || conf.Aws_secret_access_key == "" {
-		err := LoadConfigFromFile(&conf, aws_profile, "~/.aws/credentials")
+		err := LoadConfigFromFile(&conf, aws_profile, os.Getenv("HOME")+"/.aws/credentials")
 		if err != nil {
 			log.Info(err)
 		}	

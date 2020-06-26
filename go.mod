@@ -3,6 +3,7 @@ module mcs-s3-snippets
 go 1.14
 
 require (
-	github.com/pelletier/go-toml v1.8.0
 	github.com/sirupsen/logrus v1.6.0
+	github.com/smartystreets/goconvey v1.6.4 // indirect
+	gopkg.in/ini.v1 v1.57.0
 )
